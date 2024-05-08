@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hospital Management System{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            padding-top: 56px; /* Adjust navbar height */
+            background-color: #f8f9fa; /* Change body background color */
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        html {
+              height:100%;
+        }
+
+        .navbar {
+            background-color: #007bff !important; /* Change navbar background color to blue */
+        }
+        .nav-link {
+            color: #ffffff !important; /* Change nav link color to white */
+        }
+        .navbar-brand {
+            color: #ffffff !important; /* Change navbar brand color to white */
+        }
+        .footer {
+            background-color: #ffc107; /* Change footer background color to yellow */
+            color: #ffffff; /* Change footer text color to white */
+            padding: 35px;
+
+            position: sticky;
+            top: 100;
+        }
+        /* Social icon styling */
+        .social-icons a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .social-icons a:hover {
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top bg-primary">
+        <a class="navbar-brand" href="/admindash">V.V Hospital Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admindash">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-doctor">Doctor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-patient">Patient</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-appointment">Appointment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}
+        <!-- Content from child templates will replace this block -->
+        {% endblock %}
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="social-icons">
+                        <a href="#" class="fab fa-facebook fa-2x mr-3"></a>
+                        <a href="#" class="fab fa-whatsapp fa-2x mr-3"></a>
+                        <a href="#" class="fab fa-instagram fa-2x mr-3"></a>
+                        <a href="#" class="fab fa-twitter fa-2x mr-3"></a>
+                    </p>
+                    <p class="mb-0">Made in India &copy; 2024</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'https://code.jquery.com/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js'%}"></script>
+    <script src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>

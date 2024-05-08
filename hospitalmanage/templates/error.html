@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Error</title>
+</head>
+<body>
+  {% include "navbar.html" %}
+  <br><br>
+    <h1>An Error Occurred</h1>
+    <p>{{ error_message }}</p>
+    <p>We apologize for the inconvenience. Please try again later.</p>
+
+  {% include "footer.html" %}
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <title>My Django Website</title>-->
+<!--  &lt;!&ndash; Include Bootstrap CSS &ndash;&gt;-->
+<!--  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--  &lt;!&ndash; Custom CSS &ndash;&gt;-->
+<!--  <style>-->
+<!--    /* Add custom styles here */-->
+<!--    /* For example: */-->
+<!--    .container {-->
+<!--      padding: 20px;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--  <div class="container">-->
+<!--    <h1 class="text-center">Your Details</h1>-->
+<!--    <table class="table table-bordered table-primary">-->
+<!--      <thead>-->
+<!--        <tr>-->
+<!--          <th>Doctor Name</th>-->
+<!--          <th>Symptoms</th>-->
+<!--          <th>Doctor Mobile</th>-->
+<!--          <th>Doctor Address</th>-->
+<!--          <th>Doctor Department</th>-->
+<!--          <th>Admit Date</th>-->
+<!--        </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--        <tr>-->
+<!--          <td>{{ doctorName }}</td>-->
+<!--          <td>{{ symptoms }}</td>-->
+<!--          <td>{{ doctorMobile }}</td>-->
+<!--          <td>{{ doctorAddress }}</td>-->
+<!--          <td>{{ doctorDepartment }}</td>-->
+<!--          <td>{{ admitDate }}</td>-->
+<!--        </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; Include Bootstrap JS (optional) &ndash;&gt;-->
+<!--  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>-->
+<!--  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <p>This is the contact us page content.</p>
+     <form method="post">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit">Submit</button>
+     </form>
+    <!-- You can add a contact form here if needed -->
+</body>
+</html>

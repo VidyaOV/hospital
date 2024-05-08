@@ -1,0 +1,241 @@
+{% extends 'base_patient.html' %}
+{% load static %}
+{% block title %}Patient Dashboard{% endblock %}
+
+{% block content %}
+
+<!--<header>-->
+<!--  <h1>Welcome, Admin</h1>-->
+<!--  <img src="{% static "images/admin.png" %}" alt="Admin Image" style="width: 100px; height: auto;">-->
+<!--</header>-->
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+     th {
+      font-size: 20px;
+    }
+
+    /* Increase text size for table data */
+    td {
+      font-size: 18px;
+    }
+
+<!--    .row {-->
+<!--      margin: 100px;-->
+<!--    }-->
+  </style>
+</head>
+<header class="avatar">
+      <img src="{% static patient.profile_pic.url %}" alt="Patient Image" style="width: 100px; height: auto;">
+      <br><br>
+<!--      <h6>Welcome!</h6>-->
+      <h2>Welcome {{request.user.first_name}} !</h2>
+</header>
+
+
+
+<main>
+<!--  <div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="panel panel-primary col-md-5" style="margin-left:2%;">-->
+<!--      <div class="panel-heading" style="text-align:center;">-->
+<!--        <h6 class="panel-title">RECENT DOCTORS</h6>-->
+<!--      </div>-->
+<!--      <table class="table table-hover" id="dev-table">-->
+<!--        <thead>-->
+<!--          <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Department</th>-->
+<!--            <th>Mobile</th>-->
+<!--            <th>Status</th>-->
+
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        {% for d in doctors %}-->
+<!--        <tr>-->
+<!--          <td>{{d.get_name}}</td>-->
+<!--          <td>{{d.department}}</td>-->
+<!--          <td>{{d.mobile}}</td>-->
+<!--          {%if d.status%}-->
+<!--          <td> <span class="label label-primary">Permanent</span></td>-->
+<!--          {% else %}-->
+<!--          <td> <span class="label label-success">On Hold</span></td>-->
+<!--          {% endif %}-->
+
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--      </table>-->
+<!--    </div>-->
+
+<!--    <div class="panel panel-primary col-md-5" style="margin-left:5%;">-->
+<!--      <div class="panel-heading" style="text-align:center;">-->
+<!--        <h6 class="panel-title">RECENT PATIENTS</h6>-->
+<!--      </div>-->
+<!--      <table class="table table-hover" id="dev-table">-->
+<!--        <thead>-->
+<!--          <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Symptoms</th>-->
+<!--            <th>Mobile</th>-->
+<!--            <th>Address</th>-->
+<!--            <th>Status</th>-->
+
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        {% for p in patients %}-->
+<!--        <tr>-->
+<!--          <td> {{p.get_name}}</td>-->
+<!--          <td>{{p.symptoms}}</td>-->
+<!--          <td>{{p.mobile}}</td>-->
+<!--          <td>{{p.address}}</td>-->
+<!--          {% if p.status %}-->
+<!--          <td> <span class="label label-primary">Admitted</span></td>-->
+<!--          {% else %}-->
+<!--          <td> <span class="label label-success">On Hold</span></td>-->
+<!--          {% endif %}-->
+
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--  <div class="all-list">-->
+<!--          <div>-->
+<!--            <table class="table border-info border">-->
+<!--              <tr>-->
+<!--                <th colspan="4" class="text-center bg-primary text-white">-->
+<!--                  Recent Appointments For You-->
+<!--                </th>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th>Patient Name</th>-->
+<!--                <th>Picture</th>-->
+<!--                <th>Description</th>-->
+<!--                <th>Mobile</th><th>Address</th>-->
+<!--                <th>Date</th>-->
+<!--              </tr>-->
+<!--              {% for a,p in appointments %}-->
+<!--              <tr>-->
+<!--                <td>{{a.patientName}}</td>-->
+<!--                <td> <img src="{% static p.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>-->
+<!--                <td>{{a.description}}</td>-->
+<!--                <td>{{p.mobile}}</td>-->
+<!--                <td>{{p.address}}</td>-->
+<!--                <td>{{a.appointmentDate}}</td>-->
+
+
+<!--              </tr>-->
+<!--              {% endfor %}-->
+<!--            </table>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--    <div class="container">-->
+<!--  <table class="table table-bordered">-->
+<!--    <thead>-->
+<!--      <tr>-->
+<!--        <th>Doctor Name</th>-->
+<!--        <th>Symptoms</th>-->
+<!--        <th>Doctor Mobile</th>-->
+<!--        <th>Doctor Address</th>-->
+<!--        <th>Doctor Department</th>-->
+<!--        <th>Admit Date</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--      <tr>-->
+<!--        <td>{{doctorName}}</td>-->
+<!--        <td>{{symptoms}}</td>-->
+<!--        <td>{{doctorMobile}}</td>-->
+<!--        <td>{{doctorAddress}}</td>-->
+<!--        <td>{{doctorDepartment}}</td>-->
+<!--        <td>{{admitDate}}</td>-->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</div>-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title"> Your Hospital Record</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+        <thead>
+        <tr>
+        <th>Doctor Name</th>
+        <th>Symptoms</th>
+        <th>Doctor Mobile</th>
+        <th>Doctor Address</th>
+        <th>Doctor Department</th>
+        <th>Admit Date</th>
+      </tr>
+
+        </thead>
+      <tbody>
+      <tr>
+        <td>{{ doctorName }}</td>
+        <td>{{ symptoms }}</td>
+        <td>{{ doctorMobile }}</td>
+        <td>{{ doctorAddress }}</td>
+        <td>{{ doctorDepartment }}</td>
+        <td>{{ admitDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<!--  test-->
+<!--  <div class="container">-->
+<!--    <h2 class="text-center">Your Hospital Record</h2>-->
+<!--    <style>-->
+<!--    .table-bordered th,-->
+<!--    .table-bordered td {-->
+<!--      border: 2px solid black;-->
+<!--    }-->
+<!--  </style>-->
+<!--  <table class="table table-bordered table-striped">-->
+<!--    <thead class="thead-dark">-->
+<!--      <tr>-->
+<!--        <th>Doctor Name</th>-->
+<!--        <th>Symptoms</th>-->
+<!--        <th>Doctor Mobile</th>-->
+<!--        <th>Doctor Address</th>-->
+<!--        <th>Doctor Department</th>-->
+<!--        <th>Admit Date</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--      <tr>-->
+<!--        <td>{{ doctorName }}</td>-->
+<!--        <td>{{ symptoms }}</td>-->
+<!--        <td>{{ doctorMobile }}</td>-->
+<!--        <td>{{ doctorAddress }}</td>-->
+<!--        <td>{{ doctorDepartment }}</td>-->
+<!--        <td>{{ admitDate }}</td>-->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</div>-->
+
+
+  <!-- Main content of the admin dashboard goes here -->
+</main>
+
+
+
+{% endblock %}

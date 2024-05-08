@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Hospital Contact</title>
+</head>
+<body>
+  {% include "navbar.html" %}
+  <br><br>
+
+  <center>
+    <h3 class='alert alert-success'>Send Us Your Valuable Feedback !</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+      {% include "footer.html" %}
+</body>
+</html>

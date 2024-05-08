@@ -1,0 +1,42 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h6 class="panel-title" style="font-size: 24px;">Doctors</h6>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="font-size: 20px;">Name</th>
+                    <th style="font-size: 20px;">Profile Picture</th>
+                    <th style="font-size: 20px;">Mobile</th>
+                    <th style="font-size: 20px;">Address</th>
+                    <th style="font-size: 20px;">Department</th>
+                    <th style="font-size: 20px;">Update</th>
+                    <th style="font-size: 20px;">Delete</th>
+                </tr>
+            </thead>
+            {% for d in doctors %}
+            <tr>
+                <td style="font-size: 18px;">{{ d.get_name }}</td>
+                <td><img src="{% static d.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+                <td style="font-size: 18px;">{{ d.mobile }}</td>
+                <td style="font-size: 18px;">{{ d.address }}</td>
+                <td style="font-size: 18px;">{{ d.department }}</td>
+                <td><a class="btn btn-primary btn-xs" href="{% url 'update-doctor' d.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                <td><a class="btn btn-danger btn-xs" href="{% url 'delete-doctor-from-hospital' d.id  %}" onclick="return confirm('Do you want to delete it.Sure?')"><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+{% endblock content %}

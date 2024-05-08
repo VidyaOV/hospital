@@ -1,0 +1,157 @@
+{% extends 'base_doctor.html' %}
+{% load static %}
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+
+<!--<header>-->
+<!--  <h1>Welcome, Admin</h1>-->
+<!--  <img src="{% static "images/admin.png" %}" alt="Admin Image" style="width: 100px; height: auto;">-->
+<!--</header>-->
+<header class="avatar">
+      <img src="{% static doctor.profile_pic.url %}" alt="Admin Image" style="width: 100px; height: auto;">
+      <br><br>
+      <h6>Welcome doctor!</h6>
+      <h2>{{request.user.first_name}}</h2>
+</header>
+
+
+
+<main>
+<!--  <div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="panel panel-primary col-md-5" style="margin-left:2%;">-->
+<!--      <div class="panel-heading" style="text-align:center;">-->
+<!--        <h6 class="panel-title">RECENT DOCTORS</h6>-->
+<!--      </div>-->
+<!--      <table class="table table-hover" id="dev-table">-->
+<!--        <thead>-->
+<!--          <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Department</th>-->
+<!--            <th>Mobile</th>-->
+<!--            <th>Status</th>-->
+
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        {% for d in doctors %}-->
+<!--        <tr>-->
+<!--          <td>{{d.get_name}}</td>-->
+<!--          <td>{{d.department}}</td>-->
+<!--          <td>{{d.mobile}}</td>-->
+<!--          {%if d.status%}-->
+<!--          <td> <span class="label label-primary">Permanent</span></td>-->
+<!--          {% else %}-->
+<!--          <td> <span class="label label-success">On Hold</span></td>-->
+<!--          {% endif %}-->
+
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--      </table>-->
+<!--    </div>-->
+
+<!--    <div class="panel panel-primary col-md-5" style="margin-left:5%;">-->
+<!--      <div class="panel-heading" style="text-align:center;">-->
+<!--        <h6 class="panel-title">RECENT PATIENTS</h6>-->
+<!--      </div>-->
+<!--      <table class="table table-hover" id="dev-table">-->
+<!--        <thead>-->
+<!--          <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Symptoms</th>-->
+<!--            <th>Mobile</th>-->
+<!--            <th>Address</th>-->
+<!--            <th>Status</th>-->
+
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        {% for p in patients %}-->
+<!--        <tr>-->
+<!--          <td> {{p.get_name}}</td>-->
+<!--          <td>{{p.symptoms}}</td>-->
+<!--          <td>{{p.mobile}}</td>-->
+<!--          <td>{{p.address}}</td>-->
+<!--          {% if p.status %}-->
+<!--          <td> <span class="label label-primary">Admitted</span></td>-->
+<!--          {% else %}-->
+<!--          <td> <span class="label label-success">On Hold</span></td>-->
+<!--          {% endif %}-->
+
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--  <div class="all-list">-->
+<!--          <div>-->
+<!--            <table class="table border-info border">-->
+<!--              <tr>-->
+<!--                <th colspan="4" class="text-center bg-primary text-white">-->
+<!--                  Recent Appointments For You-->
+<!--                </th>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th>Patient Name</th>-->
+<!--                <th>Picture</th>-->
+<!--                <th>Description</th>-->
+<!--                <th>Mobile</th><th>Address</th>-->
+<!--                <th>Date</th>-->
+<!--              </tr>-->
+<!--              {% for a,p in appointments %}-->
+<!--              <tr>-->
+<!--                <td>{{a.patientName}}</td>-->
+<!--                <td> <img src="{% static p.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>-->
+<!--                <td>{{a.description}}</td>-->
+<!--                <td>{{p.mobile}}</td>-->
+<!--                <td>{{p.address}}</td>-->
+<!--                <td>{{a.appointmentDate}}</td>-->
+
+
+<!--              </tr>-->
+<!--              {% endfor %}-->
+<!--            </table>-->
+<!--          </div>-->
+
+<!--        </div>-->
+    <div class="all-list">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr class="bg-primary text-white">
+          <th colspan="6" class="text-center">Recent Appointments For You</th>
+        </tr>
+        <tr>
+          <th>Patient Name</th>
+          <th>Profile Picture</th>
+          <th>Description</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for a, p in appointments %}
+        <tr>
+          <td>{{ a.patientName }}</td>
+          <td><img src="{% static p.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px"></td>
+          <td>{{ a.description }}</td>
+          <td>{{ p.mobile }}</td>
+          <td>{{ p.address }}</td>
+          <td>{{ a.appointmentDate }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+  <!-- Main content of the admin dashboard goes here -->
+</main>
+
+
+
+{% endblock %}
